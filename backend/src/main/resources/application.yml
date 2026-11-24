@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: commerce-flow-backend
+  datasource:
+    url: jdbc:h2:mem:commerceflow;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 20
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:commerce-flow-local-development-secret-key-change-me-in-production-2026}
+    expiration-ms: 86400000
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    root: INFO
+    com.commerceflow: INFO
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%X{traceId:-}] [%thread] %logger{36} - %msg%n"
