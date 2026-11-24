@@ -35,6 +35,10 @@ security:
     secret: ${JWT_SECRET:commerce-flow-local-development-secret-key-change-me-in-production-2026}
     expiration-ms: 86400000
 
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://127.0.0.1:3000}
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

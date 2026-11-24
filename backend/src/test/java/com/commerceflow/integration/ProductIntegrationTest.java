@@ -49,6 +49,15 @@ class ProductIntegrationTest {
     }
 
     @Test
+    void corsAllowsTheNextJsDevelopmentOrigin() throws Exception {
+        mockMvc.perform(get("/api/products")
+                        .header("Origin", "http://localhost:3000"))
+                .andExpect(status().isOk())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.header()
+                        .string("Access-Control-Allow-Origin", "http://localhost:3000"));
+    }
+
+    @Test
     void invalidPaginationReturnsBadRequest() throws Exception {
         mockMvc.perform(get("/api/products").param("size", "0"))
                 .andExpect(status().isBadRequest())

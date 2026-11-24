@@ -141,6 +141,12 @@ To point the frontend at another backend:
 NEXT_PUBLIC_API_URL=https://your-api-host npm run build
 ```
 
+CORS is enabled on the backend for `http://localhost:3000` and `http://127.0.0.1:3000` by default. For a deployed frontend, set:
+
+```bash
+CORS_ALLOWED_ORIGINS=https://your-frontend-host
+```
+
 ### 4.3 One-command verification
 
 From the repository root:
@@ -222,7 +228,7 @@ Saved evidence: [docs/test-evidence/frontend-tests.txt](docs/test-evidence/front
 
 | Suite | Result |
 |---|---|
-| Backend unit + integration | 22 tests, 0 failures, 0 errors |
+| Backend unit + integration | 23 tests, 0 failures, 0 errors |
 | Frontend unit | 8 tests, 3 files, 0 failures |
 | Frontend lint | Passed |
 | Frontend production build | Passed |

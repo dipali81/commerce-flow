@@ -6,7 +6,7 @@ Executed on 24-Nov-2026 with JDK 21.0.12.1, Maven 3.10.0-rc-1, Node 24.14.0 and 
 
 | Check | Command | Result | Evidence |
 |---|---|---|---|
-| Backend verify | `mvn -B -ntp verify` | **BUILD SUCCESS** — 22 tests, 0 failures, 0 errors | `backend-tests.txt` |
+| Backend verify | `mvn -B -ntp verify` | **BUILD SUCCESS** — 23 tests, 0 failures, 0 errors (includes CORS check) | `backend-tests.txt` |
 | Frontend unit tests | `npm test` | **3 files passed / 8 tests passed** | `frontend-tests.txt` |
 | Frontend lint | `npm run lint` | **Passed** | `frontend-checks.txt` |
 | Frontend production build | `npm run build` | **Passed** — 10 pages generated | `frontend-checks.txt` |
